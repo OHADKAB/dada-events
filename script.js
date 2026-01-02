@@ -7,21 +7,20 @@ function buildMailto({ name, email, pkg, message }) {
     `Name: ${name}`,
     `Email: ${email}`,
     `Package: ${pkg}`,
-    ``,
-    `Message:`,
-    `${message}`,
-    ``,
-    `Sent from events.dadastudiony.com`
+    "",
+    "Message:",
+    message,
+    "",
+    "Sent from events.dadastudiony.com"
   ];
 
   const body = bodyLines.join("\n");
-  const mailto = `mailto:${encodeURIComponent(STUDIO_EMAIL)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  return mailto;
+  return `mailto:${encodeURIComponent(STUDIO_EMAIL)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // When user clicks "Choose this" on a card, preselect package and jump to form
-  document.querySelectorAll(".card-btn").forEach(btn => {
+  // Choose buttons -> preselect package and scroll to form
+  document.querySelectorAll(".card-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       const pkg = btn.getAttribute("data-package");
       const select = document.getElementById("package");
@@ -32,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Handle form submit: open email app with prefilled content
+  // Form submit -> open email client with prefilled message
   const form = document.getElementById("contactForm");
   if (!form) return;
 
@@ -41,10 +40,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
-    const pkg = document.getElementById("package").value.trim();
+    const pkg = document.getElementById("package").value;
     const message = document.getElementById("message").value.trim();
 
-    if (!name || !email || !pkg || !message) return;
+    if (!name || !email || !pkg || !message) {
+      alert("Please fill in all fields.");
+      return;
+    }
 
     window.location.href = buildMailto({ name, email, pkg, message });
   });
