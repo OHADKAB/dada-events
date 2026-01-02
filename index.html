@@ -9,74 +9,67 @@
 
 <body>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-overlay"></div>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-brand">DADA STUDIO</div>
 
-    <div class="hero-content">
-      <div class="hero-brand">DADA STUDIO</div>
+    <h1 class="hero-title">
+      DADA EVENT<br />COVERAGE
+    </h1>
 
-      <h1 class="hero-title">
-        DADA EVENT<br />COVERAGE
-      </h1>
+    <p class="hero-subtitle">
+      Capture every moment with our professional photo & video services.
+    </p>
 
-      <p class="hero-subtitle">
-        Capture every moment with our professional photo & video services.
-      </p>
+    <a href="#packages" class="hero-cta">EXPLORE PACKAGES</a>
+  </div>
+</header>
 
-      <a href="#packages" class="hero-cta">EXPLORE PACKAGES</a>
-    </div>
-  </header>
+<!-- PACKAGES -->
+<section id="packages" class="packages">
+  <div class="package-card">
+    <h3>Studio Coverage</h3>
+    <p>Short-format corporate events</p>
+    <span>$1,800+</span>
+  </div>
 
-  <!-- PACKAGES (קטנים – placeholder שעובד) -->
-  <section id="packages" class="packages">
-    <h2>Short-Format Event Coverage</h2>
+  <div class="package-card">
+    <h3>Studio Plus</h3>
+    <p>Marketing & PR-ready coverage</p>
+    <span>$2,900+</span>
+  </div>
 
-    <div class="package-grid">
-      <div class="card">
-        <h3>Studio Coverage</h3>
-        <p>Professional documentation for small corporate events.</p>
-        <span class="price">$1,800+</span>
-      </div>
+  <div class="package-card">
+    <h3>Signature Coverage</h3>
+    <p>High-touch, brand-driven storytelling</p>
+    <span>$4,800+</span>
+  </div>
+</section>
 
-      <div class="card">
-        <h3>Studio Plus</h3>
-        <p>Marketing & PR-ready coverage with fast turnaround.</p>
-        <span class="price">$2,900+</span>
-      </div>
+<!-- CONTACT -->
+<section class="contact">
+  <h2>Get in Touch</h2>
+  <p>Tell us what you’re planning</p>
 
-      <div class="card">
-        <h3>Signature Coverage</h3>
-        <p>High-touch, brand-driven storytelling.</p>
-        <span class="price">$4,800+</span>
-      </div>
-    </div>
-  </section>
+  <form id="contactForm">
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="email" id="email" placeholder="Your Email" required />
 
-  <!-- CONTACT -->
-  <section id="contact" class="contact">
-    <h2>Get in Touch</h2>
-    <p class="subtitle">Tell us which package you’re interested in.</p>
+    <select id="package">
+      <option value="">Which package are you interested in?</option>
+      <option>Studio Coverage</option>
+      <option>Studio Plus</option>
+      <option>Signature Coverage</option>
+    </select>
 
-    <form id="contactForm">
-      <input id="name" type="text" placeholder="Your Name" required />
-      <input id="email" type="email" placeholder="Your Email" required />
+    <textarea id="message" placeholder="Your Message"></textarea>
 
-      <select id="package">
-        <option value="">Which package are you interested in?</option>
-        <option>Studio Coverage</option>
-        <option>Studio Plus</option>
-        <option>Signature Coverage</option>
-        <option>Not sure yet</option>
-      </select>
+    <button type="submit">SEND MESSAGE</button>
+  </form>
+</section>
 
-      <textarea id="message" placeholder="Your Message"></textarea>
-
-      <button type="submit">SEND MESSAGE</button>
-      <div id="status"></div>
-    </form>
-  </section>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
