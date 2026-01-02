@@ -3,142 +3,80 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DADA Studio — Short-Format Event Coverage</title>
+  <title>DADA Event Coverage</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <!-- HERO (same structure/placement as conferences) -->
+  <!-- HERO -->
   <header class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-gradient"></div>
+    <div class="hero-overlay"></div>
 
-    <div class="hero-inner">
+    <div class="hero-content">
       <div class="hero-brand">DADA STUDIO</div>
 
       <h1 class="hero-title">
-        EVENT COVERAGE<br />
-        2026
+        DADA EVENT<br />COVERAGE
       </h1>
 
       <p class="hero-subtitle">
-        Premium corporate event photography, designed as a product. Not billed hourly.
+        Capture every moment with our professional photo & video services.
       </p>
 
       <a href="#packages" class="hero-cta">EXPLORE PACKAGES</a>
     </div>
   </header>
 
-  <!-- PACKAGES -->
-  <main id="packages" class="section">
-    <div class="container">
+  <!-- PACKAGES (קטנים – placeholder שעובד) -->
+  <section id="packages" class="packages">
+    <h2>Short-Format Event Coverage</h2>
 
-      <div class="section-header">
-        <div class="kicker">Short-format events</div>
-        <h2 class="section-title">Short-Format Event Coverage</h2>
-        <p class="section-subtitle">
-          Built for panels, receptions, launches, and internal team events where you need clean visuals fast.
-        </p>
+    <div class="package-grid">
+      <div class="card">
+        <h3>Studio Coverage</h3>
+        <p>Professional documentation for small corporate events.</p>
+        <span class="price">$1,800+</span>
       </div>
 
-      <div class="cards">
-        <!-- Studio Coverage -->
-        <article class="card">
-          <div class="card-top">
-            <h3 class="card-title">Studio Coverage</h3>
-            <div class="card-subtitle">Professional event documentation</div>
-          </div>
-
-          <ul class="card-list">
-            <li>Professional event photography by a DADA Studio photographer</li>
-            <li>Coverage tailored to short-format corporate events</li>
-            <li><strong>Minimum of 250+ edited images</strong></li>
-            <li>Private online gallery for download and sharing</li>
-            <li><strong>Delivery within 48 hours</strong></li>
-          </ul>
-
-          <div class="card-price">
-            <span class="price-label">Starting at</span>
-            <span class="price-value">$1,800</span>
-          </div>
-        </article>
-
-        <!-- Studio Plus -->
-        <article class="card card-featured">
-          <div class="badge">Most Popular</div>
-
-          <div class="card-top">
-            <h3 class="card-title">Studio Plus</h3>
-            <div class="card-subtitle">Marketing & PR–ready coverage</div>
-          </div>
-
-          <ul class="card-list">
-            <li>Everything in Studio Coverage</li>
-            <li>Strategic content planning for marketing + PR needs</li>
-            <li>Expanded focus on speakers, branding, and key moments</li>
-            <li><strong>Curated Highlights Set: 25–30 ready-to-publish images</strong></li>
-            <li>Priority post-production workflow</li>
-            <li><strong>Delivery within 24 hours</strong></li>
-          </ul>
-
-          <div class="card-price">
-            <span class="price-label">Starting at</span>
-            <span class="price-value">$2,900</span>
-          </div>
-        </article>
-
-        <!-- Signature Coverage -->
-        <article class="card">
-          <div class="card-top">
-            <h3 class="card-title">Signature Coverage</h3>
-            <div class="card-subtitle">High-touch, brand-driven storytelling</div>
-          </div>
-
-          <ul class="card-list">
-            <li><strong>Personal creative direction by Ohad Kab</strong></li>
-            <li>Senior photographer + creative oversight</li>
-            <li>Stills + short-form video capture</li>
-            <li>Brand-aligned visual storytelling</li>
-            <li><strong>24-hour delivery</strong></li>
-            <li>Custom deliverables tailored to the brand</li>
-          </ul>
-
-          <div class="card-price">
-            <span class="price-label">Starting at</span>
-            <span class="price-value">$4,800</span>
-          </div>
-        </article>
+      <div class="card">
+        <h3>Studio Plus</h3>
+        <p>Marketing & PR-ready coverage with fast turnaround.</p>
+        <span class="price">$2,900+</span>
       </div>
 
-      <!-- ADD-ONS -->
-      <section class="addons">
-        <h3 class="addons-title">Optional Add-Ons</h3>
-
-        <div class="addons-grid">
-          <div class="addon">
-            <div class="addon-name">24-Hour Delivery (Studio Coverage only)</div>
-            <div class="addon-price">$350</div>
-          </div>
-
-          <div class="addon">
-            <div class="addon-name">Curated Highlights Set (10–20 images)</div>
-            <div class="addon-price">$250</div>
-          </div>
-        </div>
-
-        <p class="addons-note">
-          Add-ons can also be bundled into Studio Plus or Signature based on scope.
-        </p>
-      </section>
-
-      <!-- FOOTER NOTE -->
-      <footer class="note">
-        <p><strong>Note:</strong> Packages are structured as fixed coverage products, not hourly services.</p>
-      </footer>
-
+      <div class="card">
+        <h3>Signature Coverage</h3>
+        <p>High-touch, brand-driven storytelling.</p>
+        <span class="price">$4,800+</span>
+      </div>
     </div>
-  </main>
+  </section>
 
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h2>Get in Touch</h2>
+    <p class="subtitle">Tell us which package you’re interested in.</p>
+
+    <form id="contactForm">
+      <input id="name" type="text" placeholder="Your Name" required />
+      <input id="email" type="email" placeholder="Your Email" required />
+
+      <select id="package">
+        <option value="">Which package are you interested in?</option>
+        <option>Studio Coverage</option>
+        <option>Studio Plus</option>
+        <option>Signature Coverage</option>
+        <option>Not sure yet</option>
+      </select>
+
+      <textarea id="message" placeholder="Your Message"></textarea>
+
+      <button type="submit">SEND MESSAGE</button>
+      <div id="status"></div>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
