@@ -17,12 +17,11 @@
       <div class="hero-brand">DADA STUDIO</div>
 
       <h1 class="hero-title">
-        DADA EVENT<br />
-        COVERAGE
+        DADA EVENT<br />COVERAGE
       </h1>
 
       <p class="hero-subtitle">
-        Capture every moment with our professional photo & video services.
+        Premium corporate event photography, designed as a product. Not billed hourly.
       </p>
 
       <a href="#packages" class="hero-cta">EXPLORE PACKAGES</a>
@@ -30,10 +29,10 @@
   </header>
 
   <!-- PACKAGES -->
-  <main>
-    <section id="packages" class="section">
+  <section id="packages" class="section">
+    <div class="container">
       <h2 class="section-title">Short-Format Event Packages</h2>
-      <p class="section-subtitle">Designed as a product. Not billed hourly.</p>
+      <p class="section-subtitle">Pick a package, then send a message. We’ll reply fast.</p>
 
       <div class="cards">
         <article class="card">
@@ -44,7 +43,6 @@
 
           <ul class="card-list">
             <li>Professional event photography by a DADA Studio photographer</li>
-            <li>Coverage tailored to short-format corporate events</li>
             <li>Minimum of 250+ edited images</li>
             <li>Private online gallery for download + sharing</li>
             <li>Delivery within 48 hours</li>
@@ -72,8 +70,6 @@
 
           <ul class="card-list">
             <li>Everything in Studio Coverage</li>
-            <li>Strategic content planning for marketing + PR needs</li>
-            <li>Expanded coverage focused on speakers, branding, key moments</li>
             <li>Curated highlights set: 25–30 ready-to-publish images</li>
             <li>Priority post-production workflow</li>
             <li>Delivery within 24 hours</li>
@@ -98,10 +94,8 @@
           </div>
 
           <ul class="card-list">
-            <li>Personal creative direction by Ohad Kab</li>
-            <li>Senior photographer + creative oversight</li>
+            <li>Creative direction by Ohad Kab</li>
             <li>Stills + short-form video capture</li>
-            <li>Brand-aligned visual storytelling</li>
             <li>24-hour delivery</li>
             <li>Custom deliverables tailored to the brand</li>
           </ul>
@@ -118,34 +112,30 @@
           </div>
         </article>
       </div>
-    </section>
-
-    <!-- OPTIONAL ADD-ONS -->
-    <section class="section">
-      <h2 class="section-title">Optional Add-Ons</h2>
 
       <div class="addons">
-        <div class="addon">
-          <div class="addon-left">
-            <div class="addon-title">24-Hour Delivery (Studio Coverage only)</div>
+        <h3 class="addons-title">Optional Add-Ons</h3>
+        <div class="addons-grid">
+          <div class="addon">
+            <span>24-Hour Delivery (Studio Coverage only)</span>
+            <strong>$350</strong>
           </div>
-          <div class="addon-price">$350</div>
-        </div>
-
-        <div class="addon">
-          <div class="addon-left">
-            <div class="addon-title">Curated Highlights Set (10–20 images)</div>
+          <div class="addon">
+            <span>Curated Highlights Set (10–20 images)</span>
+            <strong>$250</strong>
           </div>
-          <div class="addon-price">$250</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section contact">
+  <!-- CONTACT (FORMSPREE) -->
+  <section id="contact" class="section contact">
+    <div class="container">
       <h2 class="section-title">Get in Touch</h2>
-      <p class="section-subtitle">Tell us what you’re planning</p>
+      <p class="section-subtitle">This form sends directly to DADA Studio (via Formspree).</p>
 
+      <!-- IMPORTANT: This is the Formspree endpoint from your creative-day site -->
       <form
         id="contactForm"
         action="https://formspree.io/f/xvgwwney"
@@ -153,8 +143,8 @@
         class="form"
       >
         <div class="form-row">
-          <input id="name" type="text" name="name" placeholder="Your Name" required />
-          <input id="email" type="email" name="_replyto" placeholder="Your Email" required />
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="_replyto" placeholder="Your Email" required />
         </div>
 
         <div class="form-row">
@@ -166,24 +156,29 @@
           </select>
         </div>
 
-        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+        <!-- hidden field so you know where it came from -->
+        <input type="hidden" name="source" value="events.dadastudiony.com" />
 
         <button type="submit" class="submit-btn">SEND MESSAGE</button>
-      </form>
 
-      <p class="fineprint">
-        By submitting, you’ll send a message directly to DADA Studio.
-      </p>
-    </section>
-  </main>
+        <p class="fineprint">
+          After you click Send, you’ll see a confirmation page. No email app popup.
+        </p>
+      </form>
+    </div>
+  </section>
 
   <footer class="footer">
-    <p>© 2026 DADA Studio. All rights reserved.</p>
-    <a class="to-top" href="#top">↑</a>
+    <div class="container footer-inner">
+      <p>© 2026 DADA Studio. All rights reserved.</p>
+      <a class="to-top" href="#top">↑</a>
+    </div>
   </footer>
 
+  <!-- MINI SCRIPT: choose package + scroll (NO MAILTO) -->
   <script>
-    // When user clicks "Choose this" on a card, preselect package and scroll to form
     document.querySelectorAll(".choose-btn").forEach(btn => {
       btn.addEventListener("click", () => {
         const pkg = btn.getAttribute("data-package");
