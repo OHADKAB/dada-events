@@ -3,18 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DADA Studio | Event Coverage</title>
+  <title>DADA Event Coverage</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body id="top">
+<body>
 
   <!-- HERO -->
-  <header class="hero">
+  <header class="hero" id="top">
     <div class="hero-overlay"></div>
+
     <div class="hero-content">
       <div class="hero-brand">DADA STUDIO</div>
-      <h1 class="hero-title">DADA EVENT<br />COVERAGE</h1>
+
+      <h1 class="hero-title">
+        DADA EVENT<br />
+        COVERAGE
+      </h1>
+
+      <p class="hero-subtitle">
+        Capture every moment with our professional photo & video services.
+      </p>
+
       <a href="#packages" class="hero-cta">EXPLORE PACKAGES</a>
     </div>
   </header>
@@ -23,71 +33,74 @@
   <section id="packages" class="section">
     <div class="container">
 
-      <!-- Studio Coverage -->
-      <article class="card">
-        <h2>Studio Coverage</h2>
-        <p><strong>Professional event documentation</strong></p>
-        <p>Designed for short-format corporate events, panels, launches, and receptions.</p>
+      <div class="cards">
 
-        <p><strong>Includes:</strong></p>
-        <ul>
-          <li>Professional event photography by a DADA Studio photographer</li>
-          <li>Coverage tailored to short-format corporate events</li>
-          <li>250+ edited images</li>
-          <li>Private online gallery for download and sharing</li>
-          <li>Delivery within 48 hours</li>
-        </ul>
+        <!-- Studio Coverage -->
+        <article class="card">
+          <h3>Studio Coverage</h3>
+          <p><strong>Professional event documentation</strong></p>
+          <p>Designed for short-format corporate events, panels, launches, and receptions.</p>
 
-        <p><strong>Starting at: $1,800</strong></p>
+          <p><strong>Includes:</strong></p>
+          <ul>
+            <li>Professional event photography by a DADA Studio photographer</li>
+            <li>Coverage tailored to short-format corporate events</li>
+            <li>250+ edited images</li>
+            <li>Private online gallery for download and sharing</li>
+            <li>Delivery within 48 hours</li>
+          </ul>
 
-        <button class="choose-btn" data-package="Studio Coverage">Choose this</button>
-      </article>
+          <p><strong>Starting at: $1,800</strong></p>
+          <button class="choose-btn" data-package="Studio Coverage">Choose this</button>
+        </article>
 
-      <!-- Studio Plus -->
-      <article class="card featured">
-        <h2>Studio Plus</h2>
-        <p><strong>Marketing &amp; PR–ready event coverage</strong> ⭐ Most Popular</p>
-        <p>Built for teams that need polished, ready-to-publish content immediately after the event.</p>
+        <!-- Studio Plus -->
+        <article class="card featured">
+          <div class="badge">⭐ Most Popular</div>
 
-        <p><strong>Includes everything in Studio Coverage, plus:</strong></p>
-        <ul>
-          <li>Strategic content planning for marketing and PR</li>
-          <li>Expanded coverage focused on speakers, branding, and key moments</li>
-          <li>Curated Highlights Set: 25–30 ready-to-publish images</li>
-          <li>Priority post-production workflow</li>
-          <li>Delivery within 24 hours</li>
-        </ul>
+          <h3>Studio Plus</h3>
+          <p><strong>Marketing & PR–ready event coverage</strong></p>
+          <p>Built for teams that need polished, ready-to-publish content immediately after the event.</p>
 
-        <p><strong>Starting at: $2,500</strong></p>
+          <p><strong>Includes:</strong></p>
+          <ul>
+            <li>Strategic content planning for marketing and PR</li>
+            <li>Expanded coverage focused on speakers, branding, and key moments</li>
+            <li>Curated Highlights Set: 25–30 ready-to-publish images</li>
+            <li>Priority post-production workflow</li>
+            <li>Delivery within 24 hours</li>
+          </ul>
 
-        <button class="choose-btn" data-package="Studio Plus">Choose this</button>
-      </article>
+          <p><strong>Starting at: $2,500</strong></p>
+          <button class="choose-btn" data-package="Studio Plus">Choose this</button>
+        </article>
 
-      <!-- Signature Coverage -->
-      <article class="card">
-        <h2>Signature Coverage</h2>
-        <p><strong>High-touch, brand-driven coverage</strong></p>
-        <p>For flagship events and strategic moments where visual storytelling matters.</p>
+        <!-- Signature Coverage -->
+        <article class="card">
+          <h3>Signature Coverage</h3>
+          <p><strong>High-touch, brand-driven coverage</strong></p>
+          <p>For flagship events and strategic moments where visual storytelling matters.</p>
 
-        <p><strong>Includes:</strong></p>
-        <ul>
-          <li>Personal creative direction.</li>
-          <li>Senior photographer with full creative oversight.</li>
-          <li>250+ edited images</li>
-          <li>short-form recap video capture.</li>
-          <li>Brand-aligned visual storytelling.</li>
-          <li>24-hour delivery.</li>
-          <li>Custom deliverables tailored to the brand.</li>
-        </ul>
+          <p><strong>Includes:</strong></p>
+          <ul>
+            <li>Personal creative direction.</li>
+            <li>Senior photographer with full creative oversight.</li>
+            <li>250+ edited images</li>
+            <li>Short-form recap video capture.</li>
+            <li>Brand-aligned visual storytelling.</li>
+            <li>24-hour delivery.</li>
+            <li>Custom deliverables tailored to the brand.</li>
+          </ul>
 
-        <p><strong>Starting at: $4,800</strong></p>
+          <p><strong>Starting at: $4,800</strong></p>
+          <button class="choose-btn" data-package="Signature Coverage">Choose this</button>
+        </article>
 
-        <button class="choose-btn" data-package="Signature Coverage">Choose this</button>
-      </article>
+      </div>
 
-      <!-- Add-ons -->
+      <!-- ADD ONS -->
       <div class="addons">
-        <h3>Optional Add-Ons</h3>
+        <h4>Optional Add-Ons</h4>
         <ul>
           <li>24-Hour Delivery (Studio Coverage only): $350</li>
           <li>Curated Highlights Set (10–20 images): $250</li>
@@ -101,10 +114,13 @@
   <section id="contact" class="section">
     <div class="container">
       <h2>Get in Touch</h2>
+      <p>Tell us what you’re planning</p>
 
+      <!-- FORM IS ALREADY CONNECTED -->
       <form
         action="https://formspree.io/f/xvgwwney"
         method="POST"
+        id="contactForm"
       >
         <input type="text" name="name" placeholder="Your Name" required />
         <input type="email" name="_replyto" placeholder="Your Email" required />
