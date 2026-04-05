@@ -4,304 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DADA Event Coverage</title>
-
-  <style>
-    :root{
-      --bg:#000;
-      --text:#fff;
-      --muted:rgba(255,255,255,.75);
-      --border:rgba(255,255,255,.16);
-      --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.08);
-      --shadow:0 18px 60px rgba(0,0,0,.55);
-      --radius:14px;
-    }
-
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height:1.55;
-    }
-
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
-
-    .container{
-      width:min(1200px, calc(100% - 40px));
-      margin:0 auto;
-    }
-
-    .hero{
-      position:relative;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:48px 20px;
-      background-image:url("hero.jpg");
-      background-size:cover;
-      background-position:center;
-    }
-
-    .hero-overlay{
-      position:absolute;
-      inset:0;
-      background:rgba(0,0,0,.58);
-    }
-
-    .hero-content{
-      position:relative;
-      z-index:1;
-      max-width:900px;
-    }
-
-    .hero-brand{
-      letter-spacing:.2em;
-      font-size:12px;
-      opacity:.85;
-      margin-bottom:18px;
-    }
-
-    .hero-title{
-      margin:0;
-      font-size:clamp(44px, 6vw, 72px);
-      line-height:1.02;
-      letter-spacing:.02em;
-    }
-
-    .hero-subtitle{
-      margin:16px auto 0;
-      max-width:680px;
-      color:rgba(255,255,255,.82);
-      font-size:18px;
-    }
-
-    .hero-cta{
-      display:inline-block;
-      margin-top:22px;
-      padding:12px 22px;
-      border:1px solid rgba(255,255,255,.5);
-      border-radius:999px;
-      font-size:12px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      background:rgba(0,0,0,.18);
-      transition:transform .15s ease, background .15s ease;
-    }
-
-    .hero-cta:hover{
-      background:rgba(255,255,255,.08);
-      transform:translateY(-1px);
-    }
-
-    .section{
-      padding:84px 0;
-      border-top:1px solid rgba(255,255,255,.06);
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(3, minmax(0, 1fr));
-      gap:22px;
-      align-items:start;
-    }
-
-    .card{
-      width:100%;
-      min-width:0;
-      background:linear-gradient(180deg, var(--panel), rgba(255,255,255,.03));
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:22px;
-    }
-
-    .card h3{
-      margin:0 0 10px;
-      font-size:24px;
-    }
-
-    .card p{
-      margin:10px 0;
-      color:rgba(255,255,255,.9);
-    }
-
-    .card p strong{
-      color:rgba(255,255,255,.98);
-    }
-
-    .card ul{
-      margin:10px 0 16px;
-      padding-left:18px;
-      color:rgba(255,255,255,.86);
-      font-size:14px;
-    }
-
-    .card li{
-      margin:6px 0;
-    }
-
-    .card button{
-      width:100%;
-      padding:12px 14px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.22);
-      background:rgba(255,255,255,.06);
-      color:var(--text);
-      font-size:12px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      cursor:pointer;
-      transition:transform .15s ease, background .15s ease;
-    }
-
-    .card button:hover{
-      background:rgba(255,255,255,.10);
-      transform:translateY(-1px);
-    }
-
-    .featured{
-      border-color:rgba(255,255,255,.28);
-      background:linear-gradient(180deg, var(--panel2), rgba(255,255,255,.03));
-    }
-
-    .badge{
-      display:inline-block;
-      margin-bottom:14px;
-      padding:6px 10px;
-      border-radius:999px;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.14);
-      font-size:12px;
-      color:rgba(255,255,255,.9);
-    }
-
-    .addons{
-      grid-column:1 / -1;
-      margin-top:8px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:var(--radius);
-      padding:18px 20px;
-    }
-
-    .addons h4{
-      margin:0 0 10px;
-      font-size:14px;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      color:rgba(255,255,255,.85);
-    }
-
-    .addons ul{
-      margin:0;
-      padding-left:18px;
-      color:rgba(255,255,255,.86);
-      font-size:14px;
-    }
-
-    .addons li{
-      margin:6px 0;
-    }
-
-    .contact-wrap{
-      max-width:760px;
-    }
-
-    #contact h2{
-      margin:0 0 12px;
-      text-align:center;
-      font-size:28px;
-    }
-
-    #contact p{
-      text-align:center;
-      color:rgba(255,255,255,.8);
-      margin:0 0 18px;
-    }
-
-    form{
-      display:grid;
-      gap:12px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:var(--radius);
-      padding:18px;
-    }
-
-    input,
-    select,
-    textarea{
-      width:100%;
-      padding:14px 14px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(0,0,0,.35);
-      color:var(--text);
-      outline:none;
-      font-size:14px;
-    }
-
-    textarea{
-      min-height:140px;
-      resize:vertical;
-    }
-
-    input::placeholder,
-    textarea::placeholder{
-      color:rgba(255,255,255,.55);
-    }
-
-    select{
-      appearance:none;
-      background-image:
-        linear-gradient(45deg, transparent 50%, rgba(255,255,255,.7) 50%),
-        linear-gradient(135deg, rgba(255,255,255,.7) 50%, transparent 50%);
-      background-position:calc(100% - 18px) 50%, calc(100% - 13px) 50%;
-      background-size:5px 5px, 5px 5px;
-      background-repeat:no-repeat;
-    }
-
-    form button{
-      padding:14px 16px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.22);
-      background:rgba(255,255,255,.08);
-      color:var(--text);
-      font-size:12px;
-      letter-spacing:.10em;
-      text-transform:uppercase;
-      cursor:pointer;
-      transition:transform .15s ease, background .15s ease;
-    }
-
-    form button:hover{
-      background:rgba(255,255,255,.12);
-      transform:translateY(-1px);
-    }
-
-    @media (max-width:980px){
-      .cards{
-        grid-template-columns:1fr;
-      }
-
-      .hero-subtitle{
-        font-size:16px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
 
+  <!-- HERO -->
   <header class="hero" id="top">
     <div class="hero-overlay"></div>
 
@@ -309,85 +17,168 @@
       <div class="hero-brand">DADA STUDIO</div>
 
       <h1 class="hero-title">
-        DADA EVENT<br />
-        COVERAGE
+        Event coverage,<br />
+        built for modern teams.
       </h1>
 
       <p class="hero-subtitle">
-        Capture every moment with our professional photo & video services.
+        Premium photo and video coverage for launches, panels, receptions, and company events, designed to deliver both documentation and marketing-ready content.
       </p>
 
-      <a href="#packages" class="hero-cta">EXPLORE PACKAGES</a>
+      <a href="#packages" class="hero-cta">Explore packages</a>
     </div>
   </header>
 
+  <!-- PACKAGES -->
   <section id="packages" class="section">
     <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Packages</p>
+        <h2>Clear coverage, clear deliverables.</h2>
+        <p>
+          Built for teams that need strong event documentation, fast content delivery, and assets that are actually useful after the event.
+        </p>
+      </div>
+
       <div class="cards">
 
+        <!-- STUDIO COVERAGE -->
         <article class="card">
           <h3>Studio Coverage</h3>
-          <p><strong>Professional event documentation</strong></p>
-          <p>Designed for short-format corporate events, panels, launches, and receptions.</p>
+          <p class="card-price">$1,800</p>
+          <p class="card-intro">
+            Smart event coverage for documentation and marketing use.
+          </p>
 
-          <p><strong>Includes:</strong></p>
-          <ul>
-            <li>Professional event photography by a DADA Studio photographer</li>
-            <li>Coverage tailored to short-format corporate events</li>
-            <li>250+ edited images</li>
-            <li>Private online gallery for download and sharing</li>
-            <li>Delivery within 48 hours</li>
-          </ul>
+          <div class="card-block">
+            <p class="label">Coverage</p>
+            <p>Up to 4 hours of on-site photography</p>
+          </div>
 
-          <p><strong>Starting at: $1,800</strong></p>
-          <button class="choose-btn" data-package="Studio Coverage">Choose this</button>
+          <div class="card-block">
+            <p class="label">Includes</p>
+            <ul>
+              <li>1 professional photographer</li>
+              <li>Still photography only</li>
+              <li>Coverage guided by marketing priorities</li>
+              <li>Branding, speakers, audience, and key moments</li>
+            </ul>
+          </div>
+
+          <div class="card-block">
+            <p class="label">Deliverables</p>
+            <ul>
+              <li>250+ professionally edited images</li>
+              <li>Clean marketing-ready edits</li>
+              <li>Private online gallery for download and sharing</li>
+              <li>Delivery within 48 hours</li>
+            </ul>
+          </div>
+
+          <div class="card-block">
+            <p class="label">Best for</p>
+            <p>Teams that need both documentation and usable digital assets</p>
+          </div>
+
+          <button class="choose-btn" data-package="Studio Coverage">Check availability</button>
+          <p class="micro-copy">We usually reply within a few hours</p>
         </article>
 
+        <!-- STUDIO PLUS -->
         <article class="card featured">
           <div class="badge">Most Popular</div>
-
           <h3>Studio Plus</h3>
-          <p><strong>Marketing &amp; PR-ready event coverage</strong></p>
-          <p>Built for teams that need polished, ready-to-publish content immediately after the event.</p>
+          <p class="card-price">$3,500</p>
+          <p class="card-intro">
+            Photo and video coverage with a polished recap edit.
+          </p>
 
-          <p><strong>Includes:</strong></p>
-          <ul>
-            <li>Strategic content planning for marketing and PR</li>
-            <li>Expanded coverage focused on speakers, branding, and key moments</li>
-            <li>Curated Highlights Set: 25-30 ready-to-publish images</li>
-            <li>Priority post-production workflow</li>
-            <li>Delivery within 24 hours</li>
-          </ul>
+          <div class="card-block">
+            <p class="label">Coverage</p>
+            <p>Up to 4 hours of on-site photo + video coverage</p>
+          </div>
 
-          <p><strong>Starting at: $2,500</strong></p>
-          <button class="choose-btn" data-package="Studio Plus">Choose this</button>
+          <div class="card-block">
+            <p class="label">Includes</p>
+            <ul>
+              <li>1 photographer</li>
+              <li>1 videographer</li>
+              <li>Still photography + video coverage</li>
+              <li>Capture built around story, energy, and visibility</li>
+            </ul>
+          </div>
+
+          <div class="card-block">
+            <p class="label">Deliverables</p>
+            <ul>
+              <li>250+ professionally edited images</li>
+              <li>1 recap video (60–90 seconds)</li>
+              <li>Private gallery + organized video delivery</li>
+              <li>Delivery within 3–5 business days</li>
+            </ul>
+          </div>
+
+          <div class="card-block">
+            <p class="label">Best for</p>
+            <p>Teams that want both visibility and storytelling from one event</p>
+          </div>
+
+          <button class="choose-btn" data-package="Studio Plus">Check availability</button>
+          <p class="micro-copy">We usually reply within a few hours</p>
         </article>
 
+        <!-- SIGNATURE -->
         <article class="card">
           <h3>Signature Coverage</h3>
-          <p><strong>High-touch, brand-driven coverage</strong></p>
-          <p>For flagship events and strategic moments where visual storytelling matters.</p>
+          <p class="card-price">$4,800</p>
+          <p class="card-intro">
+            Full content capture designed for speed, volume, and marketing impact.
+          </p>
 
-          <p><strong>Includes:</strong></p>
-          <ul>
-            <li>Personal creative direction</li>
-            <li>Senior photographer with full creative oversight</li>
-            <li>250+ edited images</li>
-            <li>Short-form recap video capture</li>
-            <li>Brand-aligned visual storytelling</li>
-            <li>24-hour delivery</li>
-            <li>Custom deliverables tailored to the brand</li>
-          </ul>
+          <div class="card-block">
+            <p class="label">Coverage</p>
+            <p>Up to 4 hours of on-site photo + video coverage</p>
+          </div>
 
-          <p><strong>Starting at: $4,800</strong></p>
-          <button class="choose-btn" data-package="Signature Coverage">Choose this</button>
+          <div class="card-block">
+            <p class="label">Includes</p>
+            <ul>
+              <li>1 photographer</li>
+              <li>1 videographer</li>
+              <li>Directed capture for both stills and short-form content</li>
+              <li>Coverage aligned with marketing and social needs</li>
+            </ul>
+          </div>
+
+          <div class="card-block">
+            <p class="label">Deliverables</p>
+            <ul>
+              <li>300+ professionally edited images</li>
+              <li>Highlight folder with up to 50 images, delivered same day or next morning</li>
+              <li>1 recap video (60–90 seconds)</li>
+              <li>2 short-form reels (15–30 seconds each)</li>
+              <li>Organized content ready for social, PR, and internal use</li>
+            </ul>
+          </div>
+
+          <div class="card-block">
+            <p class="label">Best for</p>
+            <p>Marketing teams that need fast, high-volume content output</p>
+          </div>
+
+          <button class="choose-btn" data-package="Signature Coverage">Check availability</button>
+          <p class="micro-copy">We usually reply within a few hours</p>
         </article>
 
+        <!-- ADD-ONS -->
         <div class="addons">
           <h4>Optional Add-Ons</h4>
           <ul>
-            <li>24-Hour Delivery (Studio Coverage only): $350</li>
-            <li>Curated Highlights Set (10-20 images): $250</li>
+            <li><strong>On-site Interviews:</strong> short structured interviews with key team members or guests, ideal for LinkedIn clips, testimonials, and post-event content</li>
+            <li><strong>Additional Reel:</strong> extra short-form social edit</li>
+            <li><strong>Additional Photographer or Videographer</strong></li>
+            <li><strong>Extended Coverage:</strong> add extra hours as needed</li>
+            <li><strong>Rush Delivery:</strong> priority turnaround available on request</li>
           </ul>
         </div>
 
@@ -395,14 +186,24 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact" class="section">
     <div class="container contact-wrap">
-      <h2>Get in Touch</h2>
-      <p>Tell us what you’re planning</p>
+      <p class="eyebrow center">Contact</p>
+      <h2>Check availability for your event</h2>
+      <p class="contact-subtitle">
+        Tell us a bit about your event and we’ll get back with availability and the best coverage option for your needs.
+      </p>
 
-      <form action="https://formspree.io/f/xvgwwney" method="POST" id="contactForm">
+      <form
+        action="https://formspree.io/f/xvgwwney"
+        method="POST"
+        id="contactForm"
+      >
         <input type="text" name="name" placeholder="Your Name" required />
+        <input type="text" name="company" placeholder="Company" />
         <input type="email" name="_replyto" placeholder="Your Email" required />
+        <input type="text" name="event_date" placeholder="Event Date" />
 
         <select name="package" id="package" required>
           <option value="" disabled selected>Which package are you interested in?</option>
@@ -411,9 +212,9 @@
           <option value="Signature Coverage">Signature Coverage</option>
         </select>
 
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <textarea name="message" rows="5" placeholder="Tell us a bit about the event, timing, and what kind of coverage you need" required></textarea>
 
-        <button type="submit">SEND MESSAGE</button>
+        <button type="submit">Check availability</button>
       </form>
     </div>
   </section>
