@@ -4,12 +4,304 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DADA Event Coverage</title>
-  <link rel="stylesheet" href="./style.css" />
+
+  <style>
+    :root{
+      --bg:#000;
+      --text:#fff;
+      --muted:rgba(255,255,255,.75);
+      --border:rgba(255,255,255,.16);
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.08);
+      --shadow:0 18px 60px rgba(0,0,0,.55);
+      --radius:14px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.55;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .container{
+      width:min(1200px, calc(100% - 40px));
+      margin:0 auto;
+    }
+
+    .hero{
+      position:relative;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:48px 20px;
+      background-image:url("hero.jpg");
+      background-size:cover;
+      background-position:center;
+    }
+
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,.58);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:1;
+      max-width:900px;
+    }
+
+    .hero-brand{
+      letter-spacing:.2em;
+      font-size:12px;
+      opacity:.85;
+      margin-bottom:18px;
+    }
+
+    .hero-title{
+      margin:0;
+      font-size:clamp(44px, 6vw, 72px);
+      line-height:1.02;
+      letter-spacing:.02em;
+    }
+
+    .hero-subtitle{
+      margin:16px auto 0;
+      max-width:680px;
+      color:rgba(255,255,255,.82);
+      font-size:18px;
+    }
+
+    .hero-cta{
+      display:inline-block;
+      margin-top:22px;
+      padding:12px 22px;
+      border:1px solid rgba(255,255,255,.5);
+      border-radius:999px;
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      background:rgba(0,0,0,.18);
+      transition:transform .15s ease, background .15s ease;
+    }
+
+    .hero-cta:hover{
+      background:rgba(255,255,255,.08);
+      transform:translateY(-1px);
+    }
+
+    .section{
+      padding:84px 0;
+      border-top:1px solid rgba(255,255,255,.06);
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:22px;
+      align-items:start;
+    }
+
+    .card{
+      width:100%;
+      min-width:0;
+      background:linear-gradient(180deg, var(--panel), rgba(255,255,255,.03));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+
+    .card h3{
+      margin:0 0 10px;
+      font-size:24px;
+    }
+
+    .card p{
+      margin:10px 0;
+      color:rgba(255,255,255,.9);
+    }
+
+    .card p strong{
+      color:rgba(255,255,255,.98);
+    }
+
+    .card ul{
+      margin:10px 0 16px;
+      padding-left:18px;
+      color:rgba(255,255,255,.86);
+      font-size:14px;
+    }
+
+    .card li{
+      margin:6px 0;
+    }
+
+    .card button{
+      width:100%;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      cursor:pointer;
+      transition:transform .15s ease, background .15s ease;
+    }
+
+    .card button:hover{
+      background:rgba(255,255,255,.10);
+      transform:translateY(-1px);
+    }
+
+    .featured{
+      border-color:rgba(255,255,255,.28);
+      background:linear-gradient(180deg, var(--panel2), rgba(255,255,255,.03));
+    }
+
+    .badge{
+      display:inline-block;
+      margin-bottom:14px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+      font-size:12px;
+      color:rgba(255,255,255,.9);
+    }
+
+    .addons{
+      grid-column:1 / -1;
+      margin-top:8px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:var(--radius);
+      padding:18px 20px;
+    }
+
+    .addons h4{
+      margin:0 0 10px;
+      font-size:14px;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.85);
+    }
+
+    .addons ul{
+      margin:0;
+      padding-left:18px;
+      color:rgba(255,255,255,.86);
+      font-size:14px;
+    }
+
+    .addons li{
+      margin:6px 0;
+    }
+
+    .contact-wrap{
+      max-width:760px;
+    }
+
+    #contact h2{
+      margin:0 0 12px;
+      text-align:center;
+      font-size:28px;
+    }
+
+    #contact p{
+      text-align:center;
+      color:rgba(255,255,255,.8);
+      margin:0 0 18px;
+    }
+
+    form{
+      display:grid;
+      gap:12px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:var(--radius);
+      padding:18px;
+    }
+
+    input,
+    select,
+    textarea{
+      width:100%;
+      padding:14px 14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.35);
+      color:var(--text);
+      outline:none;
+      font-size:14px;
+    }
+
+    textarea{
+      min-height:140px;
+      resize:vertical;
+    }
+
+    input::placeholder,
+    textarea::placeholder{
+      color:rgba(255,255,255,.55);
+    }
+
+    select{
+      appearance:none;
+      background-image:
+        linear-gradient(45deg, transparent 50%, rgba(255,255,255,.7) 50%),
+        linear-gradient(135deg, rgba(255,255,255,.7) 50%, transparent 50%);
+      background-position:calc(100% - 18px) 50%, calc(100% - 13px) 50%;
+      background-size:5px 5px, 5px 5px;
+      background-repeat:no-repeat;
+    }
+
+    form button{
+      padding:14px 16px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.08);
+      color:var(--text);
+      font-size:12px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      cursor:pointer;
+      transition:transform .15s ease, background .15s ease;
+    }
+
+    form button:hover{
+      background:rgba(255,255,255,.12);
+      transform:translateY(-1px);
+    }
+
+    @media (max-width:980px){
+      .cards{
+        grid-template-columns:1fr;
+      }
+
+      .hero-subtitle{
+        font-size:16px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- HERO -->
   <header class="hero" id="top">
     <div class="hero-overlay"></div>
 
@@ -29,7 +321,6 @@
     </div>
   </header>
 
-  <!-- PACKAGES -->
   <section id="packages" class="section">
     <div class="container">
       <div class="cards">
@@ -56,7 +347,7 @@
           <div class="badge">Most Popular</div>
 
           <h3>Studio Plus</h3>
-          <p><strong>Marketing & PR-ready event coverage</strong></p>
+          <p><strong>Marketing &amp; PR-ready event coverage</strong></p>
           <p>Built for teams that need polished, ready-to-publish content immediately after the event.</p>
 
           <p><strong>Includes:</strong></p>
@@ -104,17 +395,12 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact" class="section">
     <div class="container contact-wrap">
       <h2>Get in Touch</h2>
       <p>Tell us what you’re planning</p>
 
-      <form
-        action="https://formspree.io/f/xvgwwney"
-        method="POST"
-        id="contactForm"
-      >
+      <form action="https://formspree.io/f/xvgwwney" method="POST" id="contactForm">
         <input type="text" name="name" placeholder="Your Name" required />
         <input type="email" name="_replyto" placeholder="Your Email" required />
 
