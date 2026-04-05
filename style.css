@@ -12,18 +12,22 @@
 
 *{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
+
 body{
   margin:0;
   background:var(--bg);
   color:var(--text);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   line-height:1.55;
 }
 
-a{ color:inherit; text-decoration:none; }
+a{
+  color:inherit;
+  text-decoration:none;
+}
 
 .container{
-  width:min(var(--max), calc(100% - 40px));
+  width:min(1200px, calc(100% - 40px));
   margin:0 auto;
 }
 
@@ -91,15 +95,21 @@ a{ color:inherit; text-decoration:none; }
   border-top:1px solid rgba(255,255,255,.06);
 }
 
-/* CARD LAYOUT */
+/* PACKAGES */
 #packages .container{
+  max-width:1200px;
+}
+
+#packages .cards{
   display:grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns:repeat(3, minmax(0, 1fr));
   gap:22px;
   align-items:start;
 }
 
 .card{
+  width:100%;
+  min-width:0;
   background:linear-gradient(180deg, var(--panel), rgba(255,255,255,.03));
   border:1px solid var(--border);
   border-radius:var(--radius);
@@ -128,7 +138,9 @@ a{ color:inherit; text-decoration:none; }
   font-size:13px;
 }
 
-.card li{ margin:6px 0; }
+.card li{
+  margin:6px 0;
+}
 
 .card button{
   width:100%;
@@ -155,9 +167,9 @@ a{ color:inherit; text-decoration:none; }
   background:linear-gradient(180deg, var(--panel2), rgba(255,255,255,.03));
 }
 
-/* Add-ons block spans full width under cards */
+/* Add-ons */
 .addons{
-  grid-column: 1 / -1;
+  grid-column:1 / -1;
   margin-top:8px;
   background:rgba(255,255,255,.04);
   border:1px solid rgba(255,255,255,.10);
@@ -180,7 +192,9 @@ a{ color:inherit; text-decoration:none; }
   font-size:13px;
 }
 
-.addons li{ margin:6px 0; }
+.addons li{
+  margin:6px 0;
+}
 
 /* CONTACT */
 #contact .container{
@@ -202,7 +216,9 @@ form{
   padding:18px;
 }
 
-input, select, textarea{
+input,
+select,
+textarea{
   width:100%;
   padding:14px 14px;
   border-radius:12px;
@@ -213,9 +229,13 @@ input, select, textarea{
   font-size:14px;
 }
 
-textarea{ min-height:140px; resize:vertical; }
+textarea{
+  min-height:140px;
+  resize:vertical;
+}
 
-input::placeholder, textarea::placeholder{
+input::placeholder,
+textarea::placeholder{
   color:rgba(255,255,255,.55);
 }
 
@@ -224,8 +244,8 @@ select{
   background-image:
     linear-gradient(45deg, transparent 50%, rgba(255,255,255,.7) 50%),
     linear-gradient(135deg, rgba(255,255,255,.7) 50%, transparent 50%);
-  background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%;
-  background-size: 5px 5px, 5px 5px;
+  background-position:calc(100% - 18px) 50%, calc(100% - 13px) 50%;
+  background-size:5px 5px, 5px 5px;
   background-repeat:no-repeat;
 }
 
@@ -248,8 +268,8 @@ form button:hover{
 }
 
 /* MOBILE */
-@media (max-width: 980px){
-  #packages .container{
-    grid-template-columns: 1fr;
+@media (max-width:980px){
+  #packages .cards{
+    grid-template-columns:1fr;
   }
 }
